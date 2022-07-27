@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby File.read('.ruby-version').chomp
+ruby File.read(".ruby-version").chomp
 
 # App server
 gem "bootsnap", require: false
@@ -33,6 +33,8 @@ gem "bootstrap" # Design framework
 gem "jbuilder"  # JSON views
 gem "kaminari"  # Pagination
 
+# Environment variables
+gem "dotenv-rails"
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
