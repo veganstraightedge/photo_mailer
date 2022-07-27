@@ -1,8 +1,10 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <title>PhotoMailer</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Photo Mailer — simple photo email newsletters</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,4 +15,9 @@
   <body>
     <%= yield %>
   </body>
+
+  <footer role="contentinfo" class="text-center">
+    <%= link_to "Terms",   :terms, class: "me-3" %>
+    <%= link_to "Privacy", :privacy %>
+  </footer>
 </html>
