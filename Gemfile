@@ -27,7 +27,12 @@ gem "sassc-rails"     # SCSS / CSS
 gem "importmap-rails" # JS with ESM import maps
 gem "turbo-rails"     # Partial page reloads
 gem "stimulus-rails"  # AJAX JS
-gem "jbuilder"        # JSON views
+
+# Views
+gem "bootstrap" # Design framework
+gem "jbuilder"  # JSON views
+gem "kaminari"  # Pagination
+
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
