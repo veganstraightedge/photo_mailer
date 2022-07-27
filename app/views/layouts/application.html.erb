@@ -13,11 +13,13 @@
   </head>
 
   <body>
-    <%= yield %>
-  </body>
+    <%= render "layouts/nav" %>
 
-  <footer role="contentinfo" class="text-center">
-    <%= link_to "Terms",   :terms, class: "me-3" %>
-    <%= link_to "Privacy", :privacy %>
-  </footer>
+    <%= yield %>
+
+    <footer role="contentinfo" class="text-center">
+      <%= link_to "Terms",   :terms, class: "me-3" %>
+      <%= link_to "Privacy", :privacy %>
+    </footer>
+  </body>
 </html>
