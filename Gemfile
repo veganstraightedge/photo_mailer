@@ -30,9 +30,10 @@ gem "turbo-rails"     # Partial page reloads
 gem "stimulus-rails"  # AJAX JS
 
 # Views
-gem "bootstrap" # Design framework
-gem "jbuilder"  # JSON views
-gem "kaminari"  # Pagination
+gem "bootstrap"              # Design framework
+gem "bootstrap-icons-helper" # Icons
+gem "jbuilder"               # JSON views
+gem "kaminari"               # Pagination
 
 # Environment variables
 gem "dotenv-rails"
