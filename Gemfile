@@ -3,11 +3,11 @@ source "https://rubygems.org"
 ruby File.read('.ruby-version').chomp
 
 # App server
+gem "bootsnap", require: false
 gem "rails"
 
 # Web server
 gem "puma"
-gem "bootsnap", require: false
 
 # Database
 gem "pg"
