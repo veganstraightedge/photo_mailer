@@ -1,0 +1,26 @@
+<div class='container-fluid'>
+  <div class='row'>
+    <div class='col-12 col-md-4 col-lg-3 col-xl-2 bg-light mb-5 p-3'>
+      <h2 class='h6 text-secondary'>Subscriptions</h2>
+
+    </div>
+
+    <div class='col-12 col-md-8 col-lg-9 col-xl-10 p-3'>
+      <h2 class='h6 text-secondary'>
+        <% if @subscription.present? %>
+          <%= @subscription.handle %>’s
+        <% else %>
+          The
+        <% end %>
+        Feed
+      </h2>
+
+      <% if @posts.present? %>
+        <%= render @posts %>
+      <% else %>
+        <p class='fs-1 fw-light text-secondary'>There are no posts in this feed at the moment.</p>
+      <% end %>
+    </div>
+  </div>
+
+</div>

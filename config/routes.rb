@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
   # Auth
   devise_for :user,
              path:        "/",
