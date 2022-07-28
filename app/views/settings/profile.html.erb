@@ -23,7 +23,7 @@
 
               <%= form.label :avatar, class: 'form-label' %>
               <div class='row mb-3'>
-                <% if Current.user.avatar.attached? %>
+                <% if false # TODO:  Current.user.avatar.attached? %>
                   <div class='col-2'>
                     <%= avatar_image_tag user: Current.user, width: 100 %>
                   </div>

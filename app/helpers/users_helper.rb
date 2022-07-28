@@ -11,7 +11,7 @@ module UsersHelper
     classes << 'shadow' if shadow
     classes << random_tilted_class if tilt
 
-    url = if user.avatar.attached?
+    url = if false # TODO:  user.avatar.attached?
             user.avatar.variant(resize_to_limit: [width, width])
           else
             placeholder_profile_image_url size: width

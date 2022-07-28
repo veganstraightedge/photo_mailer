@@ -33,6 +33,18 @@ Rails.application.routes.draw do
     root "dashboard#index", as: :authenticated_root
   end
 
+  # Profile
+  get '@:username', to: 'users#show', as: :profile
+  get 'users/:id',  to: redirect('profile')
+  get 'profile',    to: 'users#show'
+
+  # Users
+  resources :users, only: :update
+  get 'settings',               to: redirect('settings/profile'), as: :settings
+  get 'settings/adult-content', to: 'settings#adult_content',     as: :adult_content_settings
+  get 'settings/birthday',      to: 'settings#birthday',          as: :birthday_settings
+  get 'settings/profile',       to: 'settings#profile',           as: :profile_settings
+
   # Administrivia
   get "terms",   to: "about#terms",   as: :terms
   get "privacy", to: "about#privacy", as: :privacy
