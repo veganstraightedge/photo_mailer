@@ -18,8 +18,16 @@
     <%= yield %>
 
     <footer role="contentinfo" class="text-center mt-5 pt-5">
-      <%= link_to "Terms",   :terms, class: "me-3" %>
-      <%= link_to "Privacy", :privacy %>
+      <p>
+        <%= link_to "Terms",   :terms, class: "me-3" %>
+        <%= link_to "Privacy", :privacy %>
+      </p>
+
+      <p class="text-center text-muted">
+        Built with
+        <%= %w[🌲 ❤️ 🌧 🏔].sample %>
+        in the Pacific Northwest
+      </p>
     </footer>
   </body>
 </html>
