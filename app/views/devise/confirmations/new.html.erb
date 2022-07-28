@@ -1,16 +1,19 @@
-<h2>Resend confirmation instructions</h2>
+<%= tag.div class: wrapper_row_classes do %>
+  <%= tag.div class: wrapper_columns_classes do %>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <h2 class="display-4">Resend confirmation instructions</h2>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
-  </div>
+  <%= form_for resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post } do |form| %>
+    <%= render 'forms/errors', resource: resource %>
 
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
+    <%= render "forms/labeled_email_field", form: form, name: :email %>
+
+    <div class="form-actions">
+      <%= form.submit "Resend confirmation instructions →" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+
+  <% end %>
 <% end %>
-
-<%= render "devise/shared/links" %>

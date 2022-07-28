@@ -1,0 +1,13 @@
+<% user ||= Current.user %>
+
+<div class='alert alert-<%= age_verification_status_background_class %>'>
+  Age verification
+  <%= age_verification_status_badge user: user %>
+
+  <% if user.age_verification_status == :rejected %>
+    <p class='mt-3 mb-0'>
+      <b>Rejection reason:</b>
+      <%= Current.user.age_verification_note %>
+    </p>
+  <% end %>
+</div>

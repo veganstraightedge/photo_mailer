@@ -1,0 +1,89 @@
+<div class='container'>
+  <%= render 'forms/errors', resource: Current.user %>
+
+  <div class='row px-3'>
+    <div class='col-12 mx-auto'>
+
+      <h1 class='display-4'>
+        Settings<span class='text-secondary'>:</span> <b>Birthday</b>
+      </h1>
+
+      <div class='row mt-5'>
+        <div class='col-12 col-md-3 mb-5'>
+          <%= render 'settings/subnav' %>
+        </div>
+
+        <div class='col-12 col-md-9 mb-5'>
+
+          <%= form_with model: Current.user do |form| %>
+            <%= hidden_field_tag :form_name, :adult_content %>
+
+            <fieldset class='border p-3 pb-0 mb-5 bg-light'>
+              <legend class='form-text'>Adult content</legend>
+
+              <%= render 'posts/form/adult_content', form: form %>
+
+              <% if Current.user.identity_documents.attached? %>
+                <div class='mb-5'>
+                  <%= render 'age_verification_status' %>
+
+                  <p>Uploaded identity documents</p>
+
+                  <div class='row'>
+                    <% Current.user.identity_documents.each do |identity_document| %>
+                      <div class='col-2'>
+                        <%= image_tag identity_document, class: "border border-secondary rounded shadow #{random_tilted_class}" %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+
+              <div class="mb-3">
+                <%= form.label      :identity_documents, 'Upload age verifcation documents', class: 'form-label' %>
+                <%= form.file_field :identity_documents,
+                                    accept: '.jpg, .jpeg, .png, .pdf',
+                                    multiple: true,
+                                    class: 'form-control form-control-lg' %>
+
+                <div class='alert alert-info mt-3'>
+                  <p>
+                    To upload or view adult content, you must provide documents that verify your age. Accepted IDs are:
+                  </p>
+
+                  <ul>
+                    <li>Federal or state drivers license</li>
+                    <li>Identification card</li>
+                    <li>Passport</li>
+                  </ul>
+
+                  <p>You must uplaod <i>one of these</i>:</p>
+
+                  <ul>
+                    <li>Photo of the front and back of your driver’s license</li>
+                    <li>Photo of the front and back of your identification card</li>
+                    <li>Photo of the photo page of your passport</li>
+                  </ul>
+
+                  <p><b>MOST IMPORTANT:</b></p>
+
+                  <ul>
+                    <li>You must also upload a photo of your face with your photo ID.</li>
+                    <li>Both your face and the photo on the ID must be visible.</li>
+                    <li>The photo must be high enough quality and resolution so that that text can also be read on the ID.</li>
+                  </ul>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class='mb-3 text-end'>
+              <%= form.submit 'Save', class: 'btn btn-primary btn-lg' %>
+            </div>
+          <% end %>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<%# Authed user %>
+<% if signed_in? %>
+
+  <%# My profile %>
+  <% if Current.user == user %>
+    <%= link_to 'Edit profile', :settings, class: 'btn btn-outline-primary btn-sm me-1' %>
+  <%# Already subscribed %>
+  <% elsif Current.user.subscribed? to: user %>
+    <%= button_to 'Unsubscribe', :unsubscribe, form_class: 'unsubscribe-form', method: :delete %>
+  <%# Not yet subscribed %>
+  <% else %>
+    <%= button_to 'Subscribe',   :subscribe,   form_class: 'subscribe-form' %>
+  <% end %>
+
+<%# Unauthed user %>
+<% else %>
+  <%= link_to 'Sign in to subscribe', [:new_user_session, path: user.path], class: 'btn btn-outline-primary btn-sm me-1' %>
+
+<% end %>

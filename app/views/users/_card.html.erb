@@ -1,0 +1,79 @@
+<div class='container mt-5'>
+  <div class='row'>
+
+    <div class='col-4 col-lg-3'>
+      <div>
+        <%= avatar_image_tag user: user, width: 300, tilt: true %>
+      </div>
+
+      <div class='mt-3'>
+        <%= age_badge_for user %>
+
+        <% if user.adult? && user.show_age? %>
+          <span class='badge text-dark fw-normal'>
+            <%= user.age %> years old
+          </span>
+        <% end %>
+      </div>
+
+      <table class='my-2 text-secondary'>
+        <tr>
+          <td class='text-end pe-1'><b><%= user.posts.count %></b></td>
+          <td><%= 'Post'.pluralize user.posts %></td>
+        </tr>
+
+        <tr>
+          <td class='text-end pe-1'><b><%= user.subscribers.count %></b></td>
+          <td><%= 'Subscriber'.pluralize user.subscriptions %></td>
+        </tr>
+
+        <tr>
+          <td class='text-end pe-1'><b><%= user.subscriptions.count %></b></td>
+          <td><%= 'Subscription'.pluralize user.subscriptions %></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class='col-8 col-lg-9'>
+      <h1 class='fw-bold'><%= user.handle %></h1>
+
+      <% if user.name.present? %>
+        <h2 class='fw-light'><%= user.name %></h2>
+      <% end %>
+
+      <div class='my-3'>
+        <%= render 'users/action_buttons', user: user %>
+      </div>
+
+      <% if user.pronouns.present? %>
+        <p class='m-0 text-secondary'><%= user.pronouns %></p>
+      <% end %>
+
+      <% if user.location.present? %>
+        <p class='m-0'><%= user.location %></p>
+      <% end %>
+
+      <% if user.website.present? %>
+        <p class='m-0'>
+          <%= link_to strip_url_protocol(user.website), user.website, class: 'text-dark' %>
+        </p>
+      <% end %>
+
+      <% if user.bio.present? %>
+        <div class='my-3 d-none d-lg-block'>
+          <%= render 'users/bio', user: user, user: user %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <% if user.bio.present? %>
+    <div class='card d-lg-none my-3'>
+      <div class='card-body'>
+        <div class='card-text'>
+          <%= render 'users/bio', user: user %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

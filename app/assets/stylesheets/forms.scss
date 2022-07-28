@@ -1,20 +1,10 @@
-label {
-  @extend .font-weight-bold !optional;
+.form-actions {
+  @extend .text-end  !optional;
+  @extend .my-5  !optional;
 }
 
-// File upload shadow down styling to look like a Bootstrap button
-input[type="file"]::-webkit-file-upload-button {
-  @extend .btn !optional;
-  @extend .btn-outline-primary !optional;
-}
-
-.actions {
-  @extend .text-right !optional;
-  @extend .mb-3 !optional;
-}
-
-.actions input[type=submit] {
-  @extend .btn !optional;
-  @extend .btn-primary !optional;
-  @extend .btn-lg !optional;
+.form-actions input[type=submit] {
+  @extend .btn  !optional;
+  @extend .btn-primary  !optional;
+  @extend .btn-lg  !optional;
 }
