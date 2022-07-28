@@ -1,4 +1,4 @@
-class CreateUsers < ActiveRecord::Migration[6.1]
+class CreateUsers < ActiveRecord::Migration[7.0]
   def change
     create_table :users do |t|
       t.string :name
@@ -8,7 +8,6 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :email, null: false, default: ""
       t.date :birthday
       t.date :previous_birthday
-      t.string :pronouns
       t.text :location
 
       t.boolean :show_age, default: false
