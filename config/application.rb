@@ -20,6 +20,11 @@ Bundler.require(*Rails.groups)
 
 module PhotoMailer
   class Application < Rails::Application
+    # Ensure only offical domain is usable
+    config.middleware.use Rack::ApexRedirect
+    # TODO: TEMP: enable when domain is connected to Heroku app
+    # config.middleware.use Rack::DomainRedirect
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
