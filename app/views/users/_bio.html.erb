@@ -1,1 +1,2 @@
-<%= render_markdown user.bio, inline_tags_only: true, user: user %>
+<%# TODO: use action text %>
+<%= simple_format user.bio, inline_tags_only: true, user: user %>

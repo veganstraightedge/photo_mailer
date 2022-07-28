@@ -29,18 +29,22 @@
                   </div>
                 <% end %>
 
+                <% if false # TODO: %>
                 <div class='col-<%= Current.user.avatar.attached? ? 10 : 12 %>'>
+                <% end %>
+
+                <div class='col-12'>
                   <%= form.file_field :avatar, accept: '.jpg, .jpeg, .png, .gif', class: 'form-control form-control-lg' %>
 
+                  <% if false # TODO: %>
                   <% if Current.user.avatar.attached? %>
                     <%= button_to_delete_attachment Current.user.avatar, classes: 'mt-2' %>
+                  <% end %>
                   <% end %>
                 </div>
               </div>
 
               <%= render 'forms/labeled_text_field', form: form, name: :name,     autocomplete: :name %>
-
-              <%= render 'forms/labeled_text_field', form: form, name: :website,  autocomplete: :url %>
 
               <%= render 'forms/labeled_text_field', form: form, name: :location, autocomplete: 'address-level2' %>
 

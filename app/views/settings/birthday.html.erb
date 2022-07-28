@@ -35,28 +35,20 @@
                                        { class: 'form-select form-select-lg d-inline w-auto' } %>
                 </div>
 
-                <div class='alert alert-info'>
-                  <b>Two things:</b>
-                  <ul class='m-0'>
-                    <li>You must be at least 18 years old to view or publish 18+/NSFW/adult content.</li>
-                    <li>
-                      <b>You only get to change your birthday setting once</b>, because real life birthdays don’t change.<br>
-                      <i>One change is to allow you to correct an accidental mistake you might have made when signing up.</i>
-                    </li>
-                  </ul>
-                </div>
+                <p class='alert alert-info'>
+                  <b>You only get to change your birthday setting once</b>, because real life birthdays don’t change.<br>
+                  <i>One change is to allow you to correct an accidental mistake you might have made when signing up.</i>
+                </p>
               </div>
             </fieldset>
 
-            <% if Current.user.adult? %>
-              <fieldset class='border p-3 pb-0 mb-3 bg-light'>
-                <legend class='form-text'>Age on profile</legend>
-                <div class="form-check form-switch mb-3">
-                  <%= form.check_box :show_age, role: 'switch',                   class: 'form-check-input' %>
-                  <%= form.label     :show_age, 'Show your age on your profile?', class: 'form-check-label' %>
-                </div>
-              </fieldset>
-            <% end %>
+            <fieldset class='border p-3 pb-0 mb-3 bg-light'>
+              <legend class='form-text'>Age on profile</legend>
+              <div class="form-check form-switch mb-3">
+                <%= form.check_box :show_age, role: 'switch',                   class: 'form-check-input' %>
+                <%= form.label     :show_age, 'Show your age on your profile?', class: 'form-check-label' %>
+              </div>
+            </fieldset>
 
             <div class='mb-3 text-end'>
               <%= form.submit 'Save', class: 'btn btn-primary btn-lg' %>
