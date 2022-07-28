@@ -9,9 +9,6 @@ class UsersController < ApplicationController
     @user  = User.find_by username: params[:username]
 
     return redirect_to :root if @user.blank?
-
-    @posts = @user.posts.published
-    @posts = @posts.include_adult_content if Current.user&.adult?
   end
 
   # /settings

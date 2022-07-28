@@ -24,24 +24,6 @@ module UsersHelper
     "tilted-#{rand(1..13)}"
   end
 
-  def age_badge_for user
-    if user.adult?
-      adult_badge
-    elsif user.child?
-      child_badge
-    elsif user.age_unknown?
-      age_unknown_badge
-    end
-  end
-
-  def age_verification_status_badge user: Current.user
-    send "#{user.age_verification_status}_badge"
-  end
-
-  def strip_url_protocol url
-    url.gsub('https://', '').gsub('http://', '')
-  end
-
   private
 
   def adult_badge
