@@ -16,7 +16,7 @@ gem "pg"
 gem "redis"
 
 # Auth
-gem "bcrypt"
+gem "devise"
 
 # Uploads
 gem "aws-sdk-s3", require: false
