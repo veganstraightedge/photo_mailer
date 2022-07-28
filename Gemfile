@@ -17,6 +17,7 @@ gem "redis"
 
 # Auth
 gem "devise"
+gem "valid_email2" # validates user's email
 
 # Uploads
 gem "aws-sdk-s3", require: false
